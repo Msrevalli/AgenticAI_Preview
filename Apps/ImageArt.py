@@ -90,7 +90,7 @@ def add_bg_from_url():
 def load_environment() -> None:
     """Load environment variables and set up API key."""
     try:
-        load_dotenv()
+        
         api_key = st.secrets['OPENAI_API_KEY']
         if not api_key:
             raise ValueError("OPENAI_API_KEY not found in environment variables")
