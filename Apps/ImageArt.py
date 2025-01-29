@@ -3,7 +3,7 @@ from phi.agent import Agent
 from phi.tools.dalle import Dalle
 from phi.model.openai import OpenAIChat
 import os
-from dotenv import load_dotenv
+
 from typing import Optional, List
 import logging
 
@@ -91,7 +91,7 @@ def load_environment() -> None:
     """Load environment variables and set up API key."""
     try:
         load_dotenv()
-        api_key = st.secrect['OPENAI_API_KEY']
+        api_key = st.secrets['OPENAI_API_KEY']
         if not api_key:
             raise ValueError("OPENAI_API_KEY not found in environment variables")
         os.environ['OPENAI_API_KEY'] = api_key
