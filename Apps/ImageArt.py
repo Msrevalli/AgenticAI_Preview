@@ -91,7 +91,7 @@ def load_environment() -> None:
     """Load environment variables and set up API key."""
     try:
         load_dotenv()
-        api_key = os.getenv("OPENAI_API_KEY")
+        api_key = st.secrect['OPENAI_API_KEY']
         if not api_key:
             raise ValueError("OPENAI_API_KEY not found in environment variables")
         os.environ['OPENAI_API_KEY'] = api_key
