@@ -11,3 +11,9 @@ sqlalchemy
 fastapi
 python-multipart
 uvicorn
+streamlit
+pgvector
+psycopg
+typer
+psycopg2_binary
+youtube_transcript_api
