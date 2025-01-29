@@ -37,7 +37,7 @@ agent_team = Agent(
 )
 
 # Streamlit app setup
-st.title("The Financial Advisor Bot")
+st.title("The Financial Advisor Bot by Sreevalli")
 st.write("Enter your query below:")
 
 # Display finance-related sample questions in the sidebar
