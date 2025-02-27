@@ -19,3 +19,4 @@ psycopg2_binary
 youtube_transcript_api
 PyPDF2
 duckdb
+groq
