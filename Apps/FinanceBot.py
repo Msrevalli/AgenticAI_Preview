@@ -7,12 +7,18 @@ import os
 
 import streamlit as st
 
-os.environ['GROQ_API_KEY']=st.secrets['GROQ_API_KEY']
+api=st.secrets['GROQ_API_KEY']
+groq_model = Groq(
+    id="llama-3.3-70b-versatile",
+    api_key=api,  # Pass API key directly instead of via env var
+    # You might need to specify the base URL if required
+    # api_base="https://api.groq.com/v1"
+)
 
 web_agent = Agent(
     name="Web Agent",
     role="Search the web for information",
-    model=Groq(id="qwen-2.5-32b"),
+    model=groq_model,
     tools=[DuckDuckGo()],
     instructions=["Always include sources"],
     show_tool_calls=True,
@@ -22,7 +28,7 @@ web_agent = Agent(
 finance_agent = Agent(
     name="Finance Agent",
     role="Get financial data",
-    model=Groq(id="llama-3.3-70b-versatile"),
+    model=groq_model,
     tools=[YFinanceTools(stock_price=True, analyst_recommendations=True, company_info=True)],
     instructions=["Use tables to display data"],
     show_tool_calls=True,
