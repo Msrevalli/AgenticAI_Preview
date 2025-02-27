@@ -12,7 +12,7 @@ os.environ['GROQ_API_KEY']=st.secrets['GROQ_API_KEY']
 web_agent = Agent(
     name="Web Agent",
     role="Search the web for information",
-    model=Groq(id="llama-3.3-70b-versatile"),
+    model=Groq(id="qwen-2.5-32b"),
     tools=[DuckDuckGo()],
     instructions=["Always include sources"],
     show_tool_calls=True,
