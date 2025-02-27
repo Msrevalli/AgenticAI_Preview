@@ -1,5 +1,5 @@
 from phi.agent import Agent
-from phi.model.openai import OpenAIChat
+from phi.model.groq import Groq
 from phi.tools.duckduckgo import DuckDuckGo
 from phi.tools.yfinance import YFinanceTools
 
@@ -7,12 +7,12 @@ import os
 
 import streamlit as st
 
-os.environ['OPENAI_API_KEY']=st.secrets['OPENAI_API_KEY']
+os.environ['GROQ_API_KEY']=st.secrets['GROQ_API_KEY']
 
 web_agent = Agent(
     name="Web Agent",
     role="Search the web for information",
-    model=OpenAIChat(id="gpt-4o"),
+    model=Groq(id="llama-3.3-70b-versatile"),
     tools=[DuckDuckGo()],
     instructions=["Always include sources"],
     show_tool_calls=True,
@@ -22,7 +22,7 @@ web_agent = Agent(
 finance_agent = Agent(
     name="Finance Agent",
     role="Get financial data",
-    model=OpenAIChat(id="gpt-4o"),
+    model=Groq(id="llama-3.3-70b-versatile"),
     tools=[YFinanceTools(stock_price=True, analyst_recommendations=True, company_info=True)],
     instructions=["Use tables to display data"],
     show_tool_calls=True,
